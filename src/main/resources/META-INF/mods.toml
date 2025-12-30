@@ -1,0 +1,35 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="MIT License"
+
+[[mods]]
+modId="tinkersplatinumtungsten"
+version="1.0.0"
+displayName="Tinkers' Platinum & Tungsten"
+displayURL="https://curseforge.com/minecraft/mc-mods/tinkers-platinum-tungsten"
+logoFile="logo.png"
+credits="Original implementation by KnightMiner in Tinkers' Construct before  v3.11.0.148. Changes by Mitemi."
+authors="ReversTeam"
+description="Re-adds platinum and tungsten parts to Tinkers' Construct compatibility."
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+[[dependencies.tinkersplatinumtungsten]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1]"
+ordering="AFTER"
+side="BOTH"
+
+
+
+
+# Start of user code block dependencies configuration
+[[dependencies.tinkersplatinumtungsten]]
+modId="tconstruct"
+mandatory=true
+versionRange="[3.11.0.148]"
+ordering="NONE"
+side="BOTH"
+# End of user code block dependencies configuration
