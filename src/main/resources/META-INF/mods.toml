@@ -4,7 +4,7 @@ license="MIT License"
 
 [[mods]]
 modId="tinkersplatinumtungsten"
-version="1.0.0"
+version="1.0.1"
 displayName="Tinkers' Platinum & Tungsten"
 displayURL="https://curseforge.com/minecraft/mc-mods/tinkers-platinum-tungsten"
 logoFile="logo.png"
@@ -29,7 +29,7 @@ side="BOTH"
 [[dependencies.tinkersplatinumtungsten]]
 modId="tconstruct"
 mandatory=true
-versionRange="[3.11.0.148]"
+versionRange="[3.11.0.148,)"
 ordering="NONE"
 side="BOTH"
 # End of user code block dependencies configuration
