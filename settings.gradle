@@ -1,13 +1,19 @@
 pluginManagement {
     repositories {
+        maven { url = "https://maven.fabricmc.net/" }
+        maven { url = "https://files.minecraftforge.net/maven/" }
+        maven { url = "https://maven.neoforged.net/releases" }
         gradlePluginPortal()
-        maven {
-            name = 'MinecraftForge'
-            url = 'https://maven.minecraftforge.net/'
-        }
     }
 }
 
-plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
+file("gradle.properties").withInputStream {
+    def props = new Properties()
+    props.load(it)
+    rootProject.name = props.mod_id
 }
+
+include(
+    "run-fabric",
+    "run-forge"
+)
