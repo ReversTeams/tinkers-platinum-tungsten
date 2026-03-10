@@ -1,0 +1,40 @@
+name: Publish Minecraft Mod
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'gradle'
+
+      - name: Build Mod
+        run: ./gradlew build
+
+      - name: Publish mod files
+        uses: tristankechlo/publish-mc-mod@v2.0.0
+        with:
+          mc-version: "1.20.1"
+          mod-version: "1.1.0"
+          curseforge-id: 1416902
+          modrinth-id: "DvYhueMk"
+          version-range: "[1.20.1,1.20.2)"
+          version-type: "release"
+          loaders: "forge"
+          changelog: |
+            - Optimized size and performance.
+            - Universalized the jar.
+
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          forge-glob: ./build/libs/*-universal-!(*-dev|*-sources|*-javadoc).jar
