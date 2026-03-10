@@ -1,6 +1,6 @@
-/build
-/run
-/bin
+build
+run
+bin
 .gradle
 .mcreator
 .vscode
