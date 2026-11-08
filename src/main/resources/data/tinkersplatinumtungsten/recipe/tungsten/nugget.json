@@ -1,0 +1,16 @@
+{
+  "type": "modernfoundry:material",
+  "ingredient": {
+    "tag": "c:nuggets/tungsten"
+  },
+  "material": "modernfoundry:tungsten",
+  "needed": 9,
+  "value": 1,
+  "neoforge:conditions": [
+    {
+      "type": "hilt:tag_filled",
+      "tag": "c:nuggets/tungsten"
+    }
+  ],
+  "id": "tinkersplatinumtungsten:tungsten/nugget"
+}

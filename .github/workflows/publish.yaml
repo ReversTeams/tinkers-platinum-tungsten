@@ -1,44 +1,23 @@
-name: Publish Minecraft Mod
-
+name: NeoForge 1.21.1 build
 on:
   push:
-    tags:
-      - "*"
-
+    branches: [port/1.21.1-neoforge]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-java@v5
+      - uses: actions/setup-java@v4
         with:
-          distribution: 'temurin'
+          distribution: temurin
           java-version: '21'
-          cache: 'gradle'
-
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
-
-
-      - name: Build Mod
-        run: ./gradlew build
-
-      - name: Publish mod files
-        uses: tristankechlo/publish-mc-mod@v2.0.0
+      - uses: gradle/actions/setup-gradle@v4
+      - run: chmod +x gradlew && ./gradlew build --no-daemon
+      - uses: actions/upload-artifact@v4
         with:
-          mc-version: "1.20.1"
-          mod-version: "1.1.0"
-          curseforge-id: 1416902
-          modrinth-id: "DvYhueMk"
-          version-range: "[1.20.1,1.20.2)"
-          version-type: "release"
-          loaders: "forge"
-          changelog: |
-            - Optimized size and performance.
-            - Universalized the jar.
-
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          forge-glob: ./build/libs/*-universal-!(*-dev|*-sources|*-javadoc).jar
+          name: platinum-tungsten-neoforge-1.21.1
+          path: build/libs/*.jar

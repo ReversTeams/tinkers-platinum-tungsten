@@ -1,0 +1,16 @@
+{
+  "type": "modernfoundry:material_fluid",
+  "fluid": {
+    "amount": 90,
+    "tag": "c:molten_tungsten"
+  },
+  "output": "modernfoundry:tungsten",
+  "temperature": 950,
+  "neoforge:conditions": [
+    {
+      "type": "hilt:tag_filled",
+      "tag": "c:ingots/tungsten"
+    }
+  ],
+  "id": "tinkersplatinumtungsten:tungsten/casting"
+}

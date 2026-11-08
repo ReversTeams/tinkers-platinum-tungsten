@@ -1,0 +1,18 @@
+plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+def fixtures = providers.gradleProperty('metalFixtures').isPresent()
+if (!fixtures) sourceSets.main.resources.exclude('data/c/**')
+neoForge {
+ version = '21.1.265'
+ runs {
+  server { server(); programArgument '--nogui'; systemProperty 'port.fixtureMetals', fixtures.toString() }
+  client { client(); programArguments.addAll('--quickPlaySingleplayer', 'AddonTest'); systemProperty 'port.fixtureMetals', 'true' }
+ }
+ mods { platinum_smoke { sourceSet sourceSets.main } }
+}
+repositories { maven { url = 'https://api.modrinth.com/maven' } }
+dependencies {
+ implementation 'maven.modrinth:3xgZFdrY:SbT1iise'
+ compileOnly 'maven.modrinth:hilt:IiE1PFla'
+ runtimeOnly files('../build/libs/tinkersplatinumtungsten-neoforge-1.1.0+1.21.1-neoforge.jar')
+}

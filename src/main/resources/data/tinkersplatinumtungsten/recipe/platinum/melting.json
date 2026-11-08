@@ -1,0 +1,16 @@
+{
+  "type": "modernfoundry:material_melting",
+  "input": "modernfoundry:platinum",
+  "result": {
+    "amount": 90,
+    "tag": "c:molten_platinum"
+  },
+  "temperature": 970,
+  "neoforge:conditions": [
+    {
+      "type": "hilt:tag_filled",
+      "tag": "c:ingots/platinum"
+    }
+  ],
+  "id": "tinkersplatinumtungsten:platinum/melting"
+}

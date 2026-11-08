@@ -1,0 +1,16 @@
+{
+  "type": "modernfoundry:material",
+  "ingredient": {
+    "tag": "c:ingots/platinum"
+  },
+  "material": "modernfoundry:platinum",
+  "needed": 1,
+  "value": 1,
+  "neoforge:conditions": [
+    {
+      "type": "hilt:tag_filled",
+      "tag": "c:ingots/platinum"
+    }
+  ],
+  "id": "tinkersplatinumtungsten:platinum/ingot"
+}
